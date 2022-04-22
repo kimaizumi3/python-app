@@ -13,7 +13,6 @@ app = Chalice(app_name='hobopy-backend')
 def get_all_todos():
     return database.get_all_todos()
 
-
 # 指定されたIDのToDoを取得する 無ければ　エラーをかえす
 @app.route('/todos/{todo_id}', methods=['GET'])
 def get_todo(todo_id):
