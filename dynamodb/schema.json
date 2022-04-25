@@ -1,0 +1,20 @@
+{
+	"TableName": "Todos",
+	"KeySchema": [
+		{
+			"KeyType": "HASH",
+			"AttributeName": "id"
+		}
+	],
+	"AttributeDefinitions": [
+		{
+			"AttributeName": "id",
+			"AttributeType": "S"
+		}
+	],
+	"ProvisionedThroughput": {
+		"WriteCapacityUnits": 1,
+		"ReadCapacityUnits": 1
+	}
+}
+
