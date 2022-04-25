@@ -3,7 +3,21 @@
   "app_name": "hobopy-backend",
   "stages": {
     "dev": {
-      "api_gateway_stage": "api"
+      "api_gateway_stage": "api",
+      "stage":{
+        "dev": {
+          "environment_variables":{
+            "DB_ENDPOINT":"http://127.0.0.1:8001",
+            "DB_TABLE_NAME":"Todos"
+          }
+        },
+        "prod": {
+          "autogen_policy": false,
+          "environment_variables":{
+            "DB_TABLE_NAME":"Todos"
+          }
+        }
+      }
     }
   }
 }
