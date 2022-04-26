@@ -1,36 +1,26 @@
-# 疑似database
-BLUE_THREE = [
-     { 
-         'id': 'L5',
-         'title': '夢 の 舞台 へ 駆け 上がる', 
-         'memo': 'TONOSAKI', 
-         'priority': 3, 'completed': False, 
-     }, 
-     { 
-         'id': 'L6',
-         'title': '今 ここ で 魅せる', 
-         'memo': 'GENDA', 
-         'priority': 2, 
-         'completed': False, 
-     }, 
-     { 
-         'id': 'L8', 
-         'title': 'その 瞬間 を 掴む', 
-         'memo': 'KANEKO', 
-         'priority': 1, 
-         'completed': False, 
-     } 
-]
+import os
+import boto3 
+from boto3.dynamodb.conditions import Key
 
-# すべてのレコードを取得
+ # ① DynamoDB への 接続 を 取得 する 
+def _get_database(): 
+    endpoint = os.environ.get("DB_ENDPOINT") 
+    if endpoint:
+        return boto3.resource("dynamodb", endpoint_url = endpoint)
+    else:
+        return boto3.resource("dynamodb")
+
+# ② すべて の レコード を 取得 する 
 def get_all_todos():
-    return BLUE_THREE
+    table = _get_database().Table(os.environ["DB_TABLE_NAME"])
+    response = table.scan()
+    return response["Items"]
 
-# 指定されたIDのレコードを取得
+# ③指定されたID の レコード を 取得 する 
 def get_todo(todo_id):
-    for todo in BLUE_THREE:
-        if todo ['id'] == todo_id:
-            return todo
-    return None
-
-
+    table = _get_database().Table(os.environ["DB_TABLE_NAME"])
+    response = table.query(
+        KeyConditionExpression = Key("id").eq(todo_id)
+    )
+    items = response["Items"]
+    return items[ 0] if items else None
