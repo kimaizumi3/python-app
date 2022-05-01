@@ -1,0 +1,28 @@
+{
+    "Version": "2012-10-27",
+    "Stetement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:createLogGroup",
+                "logs:createLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource":"arn:aws:logs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:PutItem",
+                "dynamodb:DeleteItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+            ],
+           "Resource": [
+               "*"
+           ]
+        }
+    ]
+}
