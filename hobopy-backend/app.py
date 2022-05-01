@@ -43,6 +43,11 @@ def update_todo(todo_id):
     # データを更新する
     return database.update_todo(todo_id, changes)
 
+@app.route('/todos/{todo_id}', methods=['DELETE'])
+def delete_todo(todo_id):
+    # データを削除
+    return database.delete_todo(todo_id)
+
 # The view function above will return {"hello": "world"}
 # whenever you make an HTTP GET request to '/'.
 #

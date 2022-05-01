@@ -62,3 +62,16 @@ def update_todo(todo_id, changes):
             ReturnValues = 'ALL_NEW'
     )
     return result['Attributes']
+
+def delete_todo(todo_id):
+    table = _get_database().Table(os.environ['DB_TABLE_NAME'])
+
+    # DynamoDBのデータｗｐ削除
+    result = table.delete_item(
+        Key={
+            'id': todo_id,
+        },
+        ReturnValues='ALL_OLD'
+    )
+    return result['Attributes']
+
