@@ -14,8 +14,8 @@
     {
       "name": "rest_api",
       "resource_type": "rest_api",
-      "rest_api_id": "pkozm07e6g",
-      "rest_api_url": "https://pkozm07e6g.execute-api.ap-northeast-1.amazonaws.com/api/"
+      "rest_api_id": "v5fy7fhsj4",
+      "rest_api_url": "https://v5fy7fhsj4.execute-api.ap-northeast-1.amazonaws.com/api/"
     }
   ],
   "schema_version": "2.0",
