@@ -1,6 +1,4 @@
 import os
-from turtle import title
-from unittest import result
 import uuid
 import boto3 
 from boto3.dynamodb.conditions import Key

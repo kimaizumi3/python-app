@@ -4,9 +4,9 @@ from chalicelib import database
 app = Chalice(app_name='hobopy-backend')
 
 
-# @app.route('/')
-# def index():
-#     return {'hello': 'world'}
+@app.route('/')
+def index():
+    return {'hello': 'world'}
 
 # すべてのTodoを取得する
 @app.route('/todos', methods=['GET'])
