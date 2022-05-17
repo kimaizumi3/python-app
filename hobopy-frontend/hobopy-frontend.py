@@ -1,5 +1,5 @@
 #  エイリアスを定義する
-__paragm__('alias', 'S', '$')
+__pragma__('alias', 'S', '$')
 
 from presenter import Presenter
 
